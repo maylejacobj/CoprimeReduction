@@ -1,3 +1,5 @@
+load "CoprimeReduction-main/SerrePairs.m";
+
 // Some examples using IsSerrePair to check whether
 // a pair of Serre curves is a Serre pair.
 
