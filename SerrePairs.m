@@ -1,4 +1,4 @@
-ChangeDirectory("/Users/Jacob/OpenImage-master");
+ChangeDirectory("OpenImage-master");
 load "main/FindOpenImage.m";
 
 // Checks if E_1 x E_2 is surjective mod 4.
