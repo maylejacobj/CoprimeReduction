@@ -1,3 +1,5 @@
+load "CoprimeReduction-main/DeltaGroup.m";
+
 // *** Characterizing Serre pairs ***
 // By Lemma 3.1 of ``GL2-representations with maximal image'' by Nathan Jones,
 // we should look at the mod 36 Galois image.
