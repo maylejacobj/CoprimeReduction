@@ -8,7 +8,7 @@ This repository contains Magma code to accompany the article "On the Density of 
 
 - `Examples.m` Contains code associated with the examples in Section 7 of the article.
 
-- `Proposition 34.m` Contains the code needed for the proof of Proposition 34.
+- `Proposition 35.m` Contains the code needed for the proof of Proposition 35.
 
 - `SerrePairs.m` Contains code related to Serre pairs, including `IsSerrePair.m`, which checks whether a pair of Serre curves forms an Serre pair. The result is rigorous when true and heuristic when false. This file also includes code related to the coprimality constant for Serre pairs.
 
