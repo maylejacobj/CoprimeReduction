@@ -52,7 +52,7 @@ end for;
 // Examples of computing coprimality constant for Serre pairs
 // in two different ways and checking numerically
 
-// Example 35
+// Example 36
 E1 := EllipticCurve([32, 212]); // 140.b1
 E2 := EllipticCurve([-12393, 197073]); // 34020.c1
 IsSerrePair(E1, E2); 
@@ -94,7 +94,7 @@ RealField() ! (CtCoprime/NumPrimes);
 // With N = 10^6, we get 0.392914469158449896812657647329
 
 
-// Example 36
+// Example 37
 E1 := EllipticCurve([0, 0, 1, -81, 290]); // 297.a1
 E2 := EllipticCurve([0, 0, 1, -3, -2]); // 405.a1
 IsSerrePair(E1, E2);
