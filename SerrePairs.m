@@ -17,7 +17,7 @@ IsSurjMod4 := function(E1,E2:B:=100000)
 	N1 := Conductor(E1);
 	N2 := Conductor(E2);
 	for p in PrimesUpTo(B) do
-		if (N1 * N2) mod p ne 0 then
+		if (2 * N1 * N2) mod p ne 0 then
 			if <R!(x^2-TraceOfFrobenius(E1,p)*x+p),R!(x^2-TraceOfFrobenius(E2,p)*x+p)> in OnlySurj then
 				return true;
 			end if;
@@ -30,20 +30,29 @@ end function;
 // Checks if E_1 x E_2 has index at most 2
 // mod 6. Note: This function assumes that E_1 and
 // E_2 are Serre curves, E_1 x E_2 is surjective
-// mod 4, and E_1 x E_2 is surjective mod 3.
+// mod 2, and E_1 x E_2 is surjective mod 3.
 // Output of `True' means index mod 6 is at most 2 (rigorous)
 // Output of `False' means index mod 6 is likely greater than 2 (heuristic)
 IsIndexAtMost2Mod6 := function(E1,E2:B:=3000000)
 	R<x> := PolynomialRing(Integers(6));
-	OnlySurj := {
-	    <x^2 + 3*x + 1, x^2 + 3*x + 1>
+	OnlyIdxAtMost2 := {
+    <$.1^2 + 5*$.1 + 5, $.1^2 + 3*$.1 + 5>,
+    <$.1^2 + 3*$.1 + 5, $.1^2 + 3*$.1 + 5>,
+    <$.1^2 + 5*$.1 + 5, $.1^2 + 5*$.1 + 5>,
+    <$.1^2 + $.1 + 5, $.1^2 + 5*$.1 + 5>,
+    <$.1^2 + 3*$.1 + 1, $.1^2 + 3*$.1 + 1>,
+    <$.1^2 + 3*$.1 + 5, $.1^2 + $.1 + 5>,
+    <$.1^2 + 5*$.1 + 5, $.1^2 + $.1 + 5>,
+    <$.1^2 + 3*$.1 + 5, $.1^2 + 5*$.1 + 5>,
+    <$.1^2 + $.1 + 5, $.1^2 + $.1 + 5>,
+    <$.1^2 + $.1 + 5, $.1^2 + 3*$.1 + 5>
 	};
 	N1 := Conductor(E1);
 	N2 := Conductor(E2);
 	for p in PrimesUpTo(B) do
-		if (N1 * N2) mod p ne 0 then
+		if (6 * N1 * N2) mod p ne 0 then
 			// p, <R!(x^2-TraceOfFrobenius(E1,p)*x+p), R!(x^2-TraceOfFrobenius(E2,p)*x+p)>;
-			if <R!(x^2-TraceOfFrobenius(E1,p)*x+p),R!(x^2-TraceOfFrobenius(E2,p)*x+p)> in OnlySurj then
+			if <R!(x^2-TraceOfFrobenius(E1,p)*x+p),R!(x^2-TraceOfFrobenius(E2,p)*x+p)> in OnlyIdxAtMost2 then
 				return true;
 			end if;
 		end if;
