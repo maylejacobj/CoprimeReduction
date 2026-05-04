@@ -28,9 +28,8 @@ end function;
 
 
 // Checks if E_1 x E_2 has index at most 2
-// mod 6. Note: This function assumes that E_1 and
-// E_2 are Serre curves, E_1 x E_2 is surjective
-// mod 2, and E_1 x E_2 is surjective mod 3.
+// mod 6. Note: This function assumes E_1 x E_2 is 
+// surjective mod 2 and E_1 x E_2 is surjective mod 3.
 // Output of `True' means index mod 6 is at most 2 (rigorous)
 // Output of `False' means index mod 6 is likely greater than 2 (heuristic)
 IsIndexAtMost2Mod6 := function(E1,E2:B:=3000000)
