@@ -272,7 +272,7 @@ end function;
 
 
 /*
-// Jstification for the ``OnlySurj'' set in IsSurjMod4.
+// Justification for the ``OnlySurj'' set in IsSurjMod4.
 D, pr1, pr2 := ConstructDelta(4);
 L := [H`subgroup : H in MaximalSubgroups(D)];
 S := {};
@@ -292,7 +292,7 @@ T diff S;
 // }
 
 
-// Jstification for the ``OnlyIdxAtMost2'' set in IsIndexAtMost2Mod6.
+// Justification for the ``OnlyIdxAtMost2'' set in IsIndexAtMost2Mod6.
 D, pr1, pr2 := ConstructDelta(6);
 D2 := ConstructDelta(2);
 D3 := ConstructDelta(3);
