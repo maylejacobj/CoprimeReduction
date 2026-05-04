@@ -269,3 +269,56 @@ ComputefSerrePairFormula := function(d, m1, m2)
     
     return (1 + (2/5)*(F2(m1)/F1(m1)) + (2/5)*(F2(m2)/F1(m2)) + (1/4)*(F2(mp)/F1(mp))) * F1(d);
 end function;
+
+
+/*
+// Jstification for the ``OnlySurj'' set in IsSurjMod4.
+D, pr1, pr2 := ConstructDelta(4);
+L := [H`subgroup : H in MaximalSubgroups(D)];
+S := {};
+for H in L do
+	if #pr1(H) eq #GL(2, Integers(4)) and #pr2(H) eq #GL(2, Integers(4)) then
+		S := S join {<CharacteristicPolynomial(pr1(h)), CharacteristicPolynomial(pr2(h))> : h in H};
+	end if;
+end for;
+
+T := {<CharacteristicPolynomial(pr1(h)), CharacteristicPolynomial(pr2(h))> : h in D};
+T diff S;
+// {
+//    <$.1^2 + 1, $.1^2 + 3*$.1 + 1>,
+//    <$.1^2 + 1, $.1^2 + $.1 + 1>,
+//    <$.1^2 + 3*$.1 + 1, $.1^2 + 1>,
+//    <$.1^2 + $.1 + 1, $.1^2 + 1>
+// }
+
+
+// Jstification for the ``OnlyIdxAtMost2'' set in IsIndexAtMost2Mod6.
+D, pr1, pr2 := ConstructDelta(6);
+D2 := ConstructDelta(2);
+D3 := ConstructDelta(3);
+L2 := LowIndexSubgroups(D, 2);
+L := &cat[ [H`subgroup : H in MaximalSubgroups(K)] : K in L2 | Index(D, K) eq 2];
+L := L cat [H`subgroup : H in MaximalSubgroups(D) | Index(D, H`subgroup) ne 2];
+S := {};
+for H in L do
+	H2 := sub<D2 | Generators(H)>;
+	H3 := sub<D3 | Generators(H)>;
+	if H2 eq D2 and H3 eq D3 then
+		S := S join {<CharacteristicPolynomial(pr1(h)), CharacteristicPolynomial(pr2(h))> : h in H};
+	end if;
+end for;
+T := {<CharacteristicPolynomial(pr1(h)), CharacteristicPolynomial(pr2(h))> : h in D};
+T diff S;
+// {
+//    <$.1^2 + 5*$.1 + 5, $.1^2 + 3*$.1 + 5>,
+//    <$.1^2 + 3*$.1 + 5, $.1^2 + 3*$.1 + 5>,
+//    <$.1^2 + 5*$.1 + 5, $.1^2 + 5*$.1 + 5>,
+//    <$.1^2 + $.1 + 5, $.1^2 + 5*$.1 + 5>,
+//    <$.1^2 + 3*$.1 + 1, $.1^2 + 3*$.1 + 1>,
+//    <$.1^2 + 3*$.1 + 5, $.1^2 + $.1 + 5>,
+//    <$.1^2 + 5*$.1 + 5, $.1^2 + $.1 + 5>,
+//    <$.1^2 + 3*$.1 + 5, $.1^2 + 5*$.1 + 5>,
+//    <$.1^2 + $.1 + 5, $.1^2 + $.1 + 5>,
+//    <$.1^2 + $.1 + 5, $.1^2 + 3*$.1 + 5>
+// }
+*/
