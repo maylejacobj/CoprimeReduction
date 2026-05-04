@@ -50,7 +50,6 @@ IsIndexAtMost2Mod6 := function(E1,E2:B:=3000000)
 	N2 := Conductor(E2);
 	for p in PrimesUpTo(B) do
 		if (6 * N1 * N2) mod p ne 0 then
-			// p, <R!(x^2-TraceOfFrobenius(E1,p)*x+p), R!(x^2-TraceOfFrobenius(E2,p)*x+p)>;
 			if <R!(x^2-TraceOfFrobenius(E1,p)*x+p),R!(x^2-TraceOfFrobenius(E2,p)*x+p)> in OnlyIdxAtMost2 then
 				return true;
 			end if;
@@ -72,7 +71,7 @@ FindLambda := function(E1, E2 : B := 100000)
         	a1p := TraceOfFrobenius(E1,p);
         	a2p := TraceOfFrobenius(E2,p);
         	M := (a1p-a2p)*(a1p+a2p);
-        	Lambda := GCD(Lambda,M);
+        	Lambda := GCD(Lambda, p*M);
         end if;
     end for;
     return Lambda;
